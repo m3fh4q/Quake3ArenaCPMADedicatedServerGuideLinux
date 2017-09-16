@@ -59,12 +59,15 @@ echo "quake3:yourquake3password" | chpasswd
 
 # Installation 2/2 (as quake3) : <a name="Installation2/2"></a>
 ## File installation
-### Download and extract latest quake3e
+### Download and extract latest quake3e client
 "Quake3e is an improved client for playing Quake 3 Arena mods" [Official site](http://edawn-mod.org/forum/viewtopic.php?f=6&t=7)
 
 ```
-cd ~ && wget http://www.edawn-mod.org/binaries/quake3-1.32e.zip
+cd ~ && mkdir quake3_arena/ && wget http://www.edawn-mod.org/binaries/quake3-1.32e.zip  && unzip quake3-1.32e.zip -d quake3_arena
 ```
+
+### Download and extract latest CPMA
+
 ```
-unzip quake3-1.32e.zip
+cd /home/quake3/quake3_arena/ && wget http://playmorepromode.org/CPMA148.zip && unzip CPMA148.zip
 ```
