@@ -1,4 +1,4 @@
-# Quake3 Arena CPMA Dedicated Server Guide Linux
+# Quake 3 Arena CPMA Dedicated Server Guide Linux
 Challenge ProMode Arena (CPMA, formerly Challenge ProMode [CPM], unofficially Promode) is a freeware modification for id Software's first-person shooter computer game Quake III Arena (Q3A). CPMA includes modified gameplays that feature air-control, rebalanced weapons, instant weapon switching and additional jumping techniques.
 
 __[Official website](http://playmorepromode.org/) - 
@@ -78,7 +78,7 @@ And
 ```
 script /dev/null
 ```
-Or from another machine :
+__Or__ from another machine :
 
 ```ssh quake3@your_server_ip``` (or use PuTTY)
 ## File installation
@@ -87,14 +87,14 @@ Or from another machine :
 cd ~ && mkdir quake3_arena/ && wget -O q3cpma.zip "https://downloader.disk.yandex.ru/disk/7185619c656cf1c36b6ac96d565b49c10491ade90b642e3f04189774e25dc0ec/59beffb4/53sDzpfHuBppuItITrHhDSXttgRq58GxhpUYtvwuBn1Q4cETy9RuB7C8QK3r_lYYJoi6yiCYYohEcJoSe17vaw%3D%3D?uid=0&filename=CPMA_full_rc4.zip&disposition=attachment&hash=YYXD3S8CqzHfF6LaZ3/izXVmV5myMZopfIfUbmvlbw8%3D%3A&limit=0&content_type=application%2Fx-zip-compressed&fsize=1257218978&hid=390c29783673c668af5f5654f594af07&media_type=compressed&tknv=v2"  && unzip -d quake3_arena q3cpma.zip  && cd quake3_arena && rm *.txt && rm h4* && rm -r superhudeditor-0.3.0 udt_gui_0.7.2_dll_1.3.0 docs
 ```
 
-The yandex link used below is a direct link to the [DEZ's Q3CPMA archive](https://drive.google.com/open?id=0B0wfFzzjvCheTVVzSmdnQ1BLUms)
+The yandex link used is a direct link to [DEZ's Q3CPMA archive](https://drive.google.com/open?id=0B0wfFzzjvCheTVVzSmdnQ1BLUms)
 
 ### Download and extract Quake3e
 ```
 cd /home/quake3/quake3_arena/ && wget http://www.edawn-mod.org/binaries/quake3-1.32e.zip && unzip quake3-1.32e.zip && chmod +x quake3e*
 ```
 
-"Quake3e is an improved client for playing Quake 3 Arena mods" [Official site](http://edawn-mod.org/forum/viewtopic.php?f=6&t=7)
+Quake3e is an improved client for playing Quake 3 Arena mods [Official site](http://edawn-mod.org/forum/viewtopic.php?f=6&t=7)
 
 ### Download a default server config
 ```
@@ -103,28 +103,26 @@ wget -O /home/quake3/quake3_arena/baseq3/server.cfg https://www.dropbox.com/s/sy
 
 This cfg file will be loaded when a server instance is launched later on, it contains good default parameters. 
 
-Some of these parameters should however be overwritten later on in the launch command.
-
-Your Quake 3 Arena CPMA server files are now installed, server instance(s) can be launched !
+Some of these parameters will be overwritten later on in the launch command. (such as sv_hostname)
 
 
 ### Edit server.cfg (optional, not recommended)
+I don't recommend modifying this file as it will be executed at server launch (this is optional though) 
+
+(You can however duplicate it and have your custom settings if you plan on not passing any start parameters but executing a custom config)
+
+It's best to leave this file untouched and use start parameters after the launch command (eg : +sv_hostname m3fh4q Q3_CPMA server)
 ```
 nano /home/quake3/quake3_arena/baseq3/server.cfg
 ```  
 
 (Ctrl-O to save, Ctrl-X to exit the editor)
 
-This file contains the server settings that will be applied when you launch the server. I recommend reading the file and understanding the commands.
+I recommend reading the file and understanding the commands, to show it's content :
 ```
 more /home/quake3/quake3_arena/baseq3/server.cfg
 ```
 
-I don't recommend modifying this file as it will be executed at server launch (this is optional though) 
-
-(You can however duplicate it and have your custom settings if you plan on not passing any start parameters but executing a custom config)
-
-It's best to leave this file untouched and use start parameters after the launch command (eg : +sv_hostname m3fh4q Q3_CPMA server)
 
 <br />
 <br />
@@ -133,7 +131,7 @@ It's best to leave this file untouched and use start parameters after the launch
 Your Quake 3 Arena CPMA server files are now installed, server instance(s) can be launched !
 
 # <a name="Managing"></a>Managing the server(s)
-The server(s) will be fully managed with the quake3 user, __log in as quake3 for this section__
+The server(s) will be fully managed with the quake3 user, __log in as quake3 for this section.__
 ```
 su quake3
 ``` 
@@ -142,13 +140,6 @@ And
 script /dev/null
 ```
 ## Operations
-### Connect to the server(s)
-You can connect to your server using the following command (in console)
-
-```
-connect yourserverip:port_of_the_instance
-``` 
-
 ### Create screen session(s)
 ```
 screen -dmS cpma_server1
@@ -158,7 +149,7 @@ This will create a detached terminal called "cpma_server1"
 
 Each instance of a Quake 3 CPMA dedicated server needs to be launched in a detached terminal using [screen](https://www.gnu.org/software/screen/manual/screen.html), if you launch a server from your current session, it will shutdown when you exit it. 
 
-Open as many screen sessions as Quake 3 Arena CPMA dedicated server instances you intend to host on this server, a 1 CPU and 1GB of RAM server can usually handle 2 instances with sv_maxclients 8.
+Open as many screen sessions as Quake 3 Arena CPMA dedicated server instances you intend to host on your server, a 1 CPU and 1GB of RAM server can usually handle 2 instances with sv_maxclients 8.
 
 ### Prepare your server(s) launch settings string
 Prepare a string of settings that will follow the launch command, use all the necessary sv_ commands
@@ -175,13 +166,8 @@ Create your own string of settings and save it somewhere or create a .cfg file i
 
 ### Start the server(s)
 The line break with " is important !
-```
-screen -S screen_session_name -X stuff "cd /home/quake3/quake3_arena/ && ./quake3e.ded.x64 launch_setting_string
-"
-```
 
 Using the example in this guide :
-
 ```
 screen -S cpma_server1 -X stuff "cd /home/quake3/quake3_arena/ && ./quake3e.ded.x64 +set dedicated 2 +set fs_game cpma +exec server.cfg +sv_hostname m3fh4q Q3CPMA server +set net_port 27960
 "
@@ -216,8 +202,6 @@ screen -S screen_session_name -X stuff "quit
 ### Using the server console
 To use the server console, you need to enter the screen session associated with it.
 
-Press Ctrl+A and Ctrl+D at the same time to detach from session 
-
 Using the example in this guide :
 ```
 screen -r cpma_server1
@@ -228,10 +212,12 @@ Generic :
 screen -r screen_session_name
 ``` 
 
-### Update the server(s)
-If the CPMA mod gets an update (Last update was July 27th 2010)
+Press Ctrl+A and Ctrl+D at the same time to detach from session 
 
-* Shutdown the Quake 3 Arena CPMA dedicated server instance(s) running on your server (Stop the server(s)) using the instructions above.
+### Update the server(s)
+If the CPMA mod gets an update (Last update was July 27th 2010) :
+
+* Shutdown the Quake 3 Arena CPMA dedicated server instance(s) running on your server (Stop the server(s) using the instructions above).
 
 * Remove the /home/quake3/quake3_arena/cpma directory
 
@@ -239,7 +225,13 @@ If the CPMA mod gets an update (Last update was July 27th 2010)
 
 * You will probably have to update Quake3e, in that case, remove all the Quake3e* files in /home/quake3/quake3_arena/ , download and extract the new Quake3e client files in /home/quake3/quake3_arena/ , [Quake3e official site](http://edawn-mod.org/forum/viewtopic.php?f=6&t=7)
 
-* Restart the servers
+* Start the Quake 3 Arena CPMA dedicated server instance(s) you previously shutdown
+
+### Connect to the server(s)
+You can connect to your server using the following command (in console)
+```
+connect yourserverip:port_of_the_instance
+``` 
 
 <br />
 <br />
@@ -266,7 +258,7 @@ crontab -e
 ```
 If you're using nano : Ctrl-O to save, Ctrl-X to exit.
 
-__add both strings previously created as a single line each__
+__Add both strings previously created after the comments (# lines), each one of them as a single line !__
 
 You can list the cron entries using :
 ```
@@ -280,4 +272,6 @@ Using the example in this guide, ```crontab -l``` will return this :
 
 >01 06 * * * screen -S cpm_server1 -X stuff ""cd /home/quake3/quake3_arena/ && ./quake3e.ded.x64 +set dedicated 2 +set fs_game cpma +exec server.cfg +sv_hostname m3fh4q Q3CPMA server +set net_port 27960\r"
 
-In this example, The Quake 3 Arena CPMA dedicated server instance running in the screen session called cpma_server1 will be shutdown at 06:00 and restarted at 06:01 system time (generally UTC)
+<br />
+
+__In this example, the Quake 3 Arena CPMA dedicated server instance running in the screen session called cpma_server1 will be shutdown at 06:00 and restarted at 06:01 system time (generally UTC)__
