@@ -11,7 +11,7 @@ __[Official website](http://playmorepromode.org/) -
 <br />
 <br />
 
-This tutorial will guide you on how to host a/multiple Quake 3 Arena CPMA servers(s) on linux.
+This tutorial will guide you on how to host a/multiple Quake 3 Arena CPMA dedicated servers(s) on linux.
 
 ## Table of contents :
 
@@ -60,6 +60,10 @@ echo "quake3:yourquake3password" | chpasswd
 ```
 
 (If you plan on logging as quake3 in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file).
+
+<br />
+<br />
+<br />
 
 # <a name="Installation2/2"></a>Installation 2/2 (as quake3) :
 ```
@@ -228,7 +232,7 @@ If the CPMA mod gets an update (Last update was July 27th 2010)
 
 
 # <a name="Restart"></a>Automatic server restart
-After some time, Quake 3 Arena CPMA dedicated servers can feel unresponsive, which is why they need to be restarted every 24hours.
+After some time, Quake 3 Arena CPMA dedicated servers can feel unresponsive, which is why they need to be restarted every 24 hours.
 
 To do this, we'll use the cron utility to perform a sever shutdown and restart.
 
