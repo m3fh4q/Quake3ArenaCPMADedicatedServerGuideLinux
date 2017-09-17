@@ -84,7 +84,7 @@ __Or__ from another machine :
 ## File installation
 ### Download and extract Quake3 and CPMA
 ```
-cd ~ && mkdir quake3_arena/ && wget -O q3cpma.zip "https://downloader.disk.yandex.ru/disk/7185619c656cf1c36b6ac96d565b49c10491ade90b642e3f04189774e25dc0ec/59beffb4/53sDzpfHuBppuItITrHhDSXttgRq58GxhpUYtvwuBn1Q4cETy9RuB7C8QK3r_lYYJoi6yiCYYohEcJoSe17vaw%3D%3D?uid=0&filename=CPMA_full_rc4.zip&disposition=attachment&hash=YYXD3S8CqzHfF6LaZ3/izXVmV5myMZopfIfUbmvlbw8%3D%3A&limit=0&content_type=application%2Fx-zip-compressed&fsize=1257218978&hid=390c29783673c668af5f5654f594af07&media_type=compressed&tknv=v2"  && unzip -d quake3_arena q3cpma.zip  && cd quake3_arena && rm *.txt && rm h4* && rm -r superhudeditor-0.3.0 udt_gui_0.7.2_dll_1.3.0 docs
+cd ~ && mkdir quake3_arena/ && wget -O q3cpma.zip "https://www.dropbox.com/s/x5kmywtwq8nqmoe/CPMA_full_rc4.zip" && unzip -d quake3_arena q3cpma.zip  && cd quake3_arena && rm *.txt && rm h4* && rm -r superhudeditor-0.3.0 udt_gui_0.7.2_dll_1.3.0 docs
 ```
 
 The yandex link used is a direct link to [DEZ's Q3CPMA archive](https://drive.google.com/open?id=0B0wfFzzjvCheTVVzSmdnQ1BLUms)
