@@ -1,3 +1,4 @@
+# Quake3 Arena CPMA Dedicated Server Guide Linux
 Challenge ProMode Arena (CPMA, formerly Challenge ProMode [CPM], unofficially Promode) is a freeware modification for id Software's first-person shooter computer game Quake III Arena (Q3A). CPMA includes modified gameplays that feature air-control, rebalanced weapons, instant weapon switching and additional jumping techniques.
 
 __[Official website](http://playmorepromode.org/) - 
@@ -17,6 +18,12 @@ This tutorial will guide you on how to host a/multiple Quake 3 Arena CPMA server
 * [Requirements](#Requirements)
 * [Installation 1/2 (as root)](#Installation1/2)
 * [Installation 2/2 (as quake3)](#Installation2/2)
+* [Automatic server restart](#Restart)
+
+<br />
+<br />
+<br />
+<br />
 
 ## <a name="Requirements"></a>Requirements
 * Debian 9
@@ -220,7 +227,7 @@ If the CPMA mod gets an update (Last update was July 27th 2010)
 * Restart the servers
 
 
-# <a name="Reboot"></a>Automatic server restart
+# <a name="Restart"></a>Automatic server restart
 After some time, Quake 3 Arena CPMA dedicated servers can feel unresponsive, which is why they need to be restarted every 24hours.
 
 To do this, we'll use the cron utility to perform a sever shutdown and restart.
@@ -250,7 +257,9 @@ crontab -l
 
 Using the example in this guide, ```crontab -l``` will return this :
 >#a bunch of comments
+
 >00 06 * * * screen -S cpma_server1 -X stuff "quit\r"
+
 >01 06 * * * screen -S cpm_server1 -X stuff ""cd /home/quake3/quake3_arena/ && ./quake3e.ded.x64 +set dedicated 2 +set fs_game cpma +exec server.cfg +sv_hostname m3fh4q Q3CPMA server +set net_port 27960\r"
 
 In this example, The Quake 3 Arena CPMA dedicated server instance running in the screen session called cpma_server1 will be shutdown at 06:00 and restarted at 06:01 system time (generally UTC)
