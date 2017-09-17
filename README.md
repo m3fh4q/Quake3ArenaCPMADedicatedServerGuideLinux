@@ -18,6 +18,7 @@ This tutorial will guide you on how to host a/multiple Quake 3 Arena CPMA dedica
 * [Requirements](#Requirements)
 * [Installation 1/2 (as root)](#Installation1/2)
 * [Installation 2/2 (as quake3)](#Installation2/2)
+* [Managing the server(s)](#Managing)
 * [Automatic server restart](#Restart)
 
 <br />
@@ -236,6 +237,9 @@ If the CPMA mod gets an update (Last update was July 27th 2010)
 
 * Restart the servers
 
+<br />
+<br />
+<br />
 
 # <a name="Restart"></a>Automatic server restart
 After some time, Quake 3 Arena CPMA dedicated servers can feel unresponsive, which is why they need to be restarted every 24 hours.
