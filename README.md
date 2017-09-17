@@ -87,7 +87,7 @@ __Or__ from another machine :
 cd ~ && mkdir quake3_arena/ && wget -O q3cpma.zip "https://www.dropbox.com/s/x5kmywtwq8nqmoe/CPMA_full_rc4.zip" && unzip -d quake3_arena q3cpma.zip  && cd quake3_arena && rm *.txt && rm h4* && rm -r superhudeditor-0.3.0 udt_gui_0.7.2_dll_1.3.0 docs
 ```
 
-The yandex link used is a direct link to [DEZ's Q3CPMA archive](https://drive.google.com/open?id=0B0wfFzzjvCheTVVzSmdnQ1BLUms)
+The dropbox link used is a mirror link to [DEZ's Q3CPMA archive](https://drive.google.com/open?id=0B0wfFzzjvCheTVVzSmdnQ1BLUms)
 
 ### Download and extract Quake3e
 ```
