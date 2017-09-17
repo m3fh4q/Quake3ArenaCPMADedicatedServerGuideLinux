@@ -66,25 +66,25 @@ Or from another machine :
 
 ```ssh quake3@your_server_ip``` (or use PuTTY)
 ## File installation
-### Download Quake 3, CPMA and Quake3e
 ### Download and extract Quake3 and CPMA
 ```
 cd ~ && mkdir quake3_arena/ && wget -O q3cpma.zip "https://downloader.disk.yandex.ru/disk/7185619c656cf1c36b6ac96d565b49c10491ade90b642e3f04189774e25dc0ec/59beffb4/53sDzpfHuBppuItITrHhDSXttgRq58GxhpUYtvwuBn1Q4cETy9RuB7C8QK3r_lYYJoi6yiCYYohEcJoSe17vaw%3D%3D?uid=0&filename=CPMA_full_rc4.zip&disposition=attachment&hash=YYXD3S8CqzHfF6LaZ3/izXVmV5myMZopfIfUbmvlbw8%3D%3A&limit=0&content_type=application%2Fx-zip-compressed&fsize=1257218978&hid=390c29783673c668af5f5654f594af07&media_type=compressed&tknv=v2"  && unzip -d quake3_arena q3cpma.zip  && cd quake3_arena && rm *.txt && rm h4* && rm -r superhudeditor-0.3.0 udt_gui_0.7.2_dll_1.3.0 docs
-
 ```
+
 The yandex link used below is a direct link to the [DEZ's Q3CPMA archive](https://drive.google.com/open?id=0B0wfFzzjvCheTVVzSmdnQ1BLUms)
 
 ### Download and extract Quake3e
-
-"Quake3e is an improved client for playing Quake 3 Arena mods" [Official site](http://edawn-mod.org/forum/viewtopic.php?f=6&t=7)
 ```
 cd /home/quake3/quake3_arena/ && wget http://www.edawn-mod.org/binaries/quake3-1.32e.zip && unzip quake3-1.32e.zip && chmod +x quake3e*
 ```
+
+"Quake3e is an improved client for playing Quake 3 Arena mods" [Official site](http://edawn-mod.org/forum/viewtopic.php?f=6&t=7)
 
 ### Download a default server config
 ```
 wget -O /home/quake3/quake3_arena/baseq3/server.cfg https://www.dropbox.com/s/syohxlyr8da2hhm/default_cpma_server.cfg
 ```
+
 This cfg file will be loaded when a server instance is launched later on, it contains good default parameters. 
 
 Some of these parameters should however be overwritten later on in the launch command.
@@ -116,6 +116,15 @@ It's best to leave this file untouched and use start parameters after the launch
 
 Your Quake 3 Arena CPMA server files are now installed, server instance(s) can be launched !
 
+# <a name="Managing"></a>Managing the server(s)
+The server(s) will be fully managed with the quake3 user, __log in as quake3 for this section__
+```
+su quake3
+``` 
+And
+```
+script /dev/null
+```
 ## Operations
 ### Connect to the server(s)
 You can connect to your server using the following command (in console)
@@ -169,21 +178,33 @@ screen -S cpma_server1 -X stuff "cd /home/quake3/quake3_arena/ && ./quake3e.ded.
 "
 ```
 
-#### wine version problem
-
-When you start the server, it may not work, this could be due to the current wine version not being compatible with the current Reflex build, in this case, __change from winhq-staging to wine or vice versa__, instructions in the Installation 1/2 section.
-
 ### Shutdown the server(s)
-```
-screen -S screen_session_name -X stuff "quit
-"
-```
-
 Using the example in this guide :
 ```
 screen -S cpma_server1 -X stuff "quit
 "
 ```
+
+Generic :
+```
+screen -S screen_session_name -X stuff "quit
+"
+```
+
+### Using the server console
+To use the server console, you need to enter the screen session associated with it.
+
+Press Ctrl+A and Ctrl+D at the same time to detach from session 
+
+Using the example in this guide :
+```
+screen -r cpma_server1
+```
+
+Generic :
+```
+screen -r screen_session_name
+``` 
 
 ### Update the server(s)
 If the CPMA mod gets an update (Last update was July 27th 2010)
@@ -198,21 +219,38 @@ If the CPMA mod gets an update (Last update was July 27th 2010)
 
 * Restart the servers
 
-### Using the server console
-To use the server console, you need to enter the screen session associated with it : 
-```
-screen -r screen_session_name
-``` 
-
-Press Ctrl+A and Ctrl+D at the same time to detach from session 
-
-Using the example in this guide :
-```
-screen -r cpma_server1
-```
 
 # <a name="Reboot"></a>Automatic server restart
 After some time, Quake 3 Arena CPMA dedicated servers can feel unresponsive, which is why they need to be restarted every 24hours.
 
 To do this, we'll use the cron utility to perform a sever shutdown and restart.
 
+### Creating the strings for cron
+Shutdown (using the example in this guide) :
+>00 06 * * * screen -S cpma_server1 -X stuff "quit\r"
+
+Start (using the example in this guide) :
+>01 06 * * * screen -S cpm_server1 -X stuff ""cd /home/quake3/quake3_arena/ && ./quake3e.ded.x64 +set dedicated 2 +set fs_game cpma +exec server.cfg +sv_hostname m3fh4q Q3CPMA server +set net_port 27960\r"
+
+__Create your strings with your own server settings you used earlier__
+
+### Adding the strings as cron entries
+You can edit the crontab file using :
+```
+crontab -e
+```
+If you're using nano : Ctrl-O to save, Ctrl-X to exit.
+
+__add both strings previously created as a single line each__
+
+You can list the cron entries using :
+```
+crontab -l
+```
+
+Using the example in this guide, ```crontab -l``` will return this :
+>#a bunch of comments
+>00 06 * * * screen -S cpma_server1 -X stuff "quit\r"
+>01 06 * * * screen -S cpm_server1 -X stuff ""cd /home/quake3/quake3_arena/ && ./quake3e.ded.x64 +set dedicated 2 +set fs_game cpma +exec server.cfg +sv_hostname m3fh4q Q3CPMA server +set net_port 27960\r"
+
+In this example, The Quake 3 Arena CPMA dedicated server instance running in the screen session called cpma_server1 will be shutdown at 06:00 and restarted at 06:01 system time (generally UTC)
