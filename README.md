@@ -182,6 +182,12 @@ screen -S cpma_server1 -X stuff "cd /home/quake3/quake3_arena/ && ./quake3e.ded.
 "
 ```
 
+Generic :
+```
+screen -S screen_session_name -X stuff "cd /home/quake3/quake3_arena/ && ./quake3e.ded.x64 +set dedicated 2 +set fs_game cpma
+"
+```
+
 __Or (if you're using a seperate custom server cfg file)__
 
 ```
