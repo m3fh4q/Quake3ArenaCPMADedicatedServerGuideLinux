@@ -18,12 +18,12 @@ This tutorial will guide you on how to host a/multiple Quake 3 Arena CPMA server
 * [Installation 1/2 (as root)](#Installation1/2)
 * [Installation 2/2 (as steam)](#Installation2/2)
 
-## Requirements <a name="Requirements"></a>
+## <a name="Requirements"></a>Requirements
 * Debian 9
 * 1 CPU and 512Mb of RAM available on your server.
 * I recommend using the $2.50 or $5 offer from [Vultr](https://www.vultr.com/pricing/) (not affiliated with them, it's just what I currently use)
 
-# Installation 1/2 (as root) : <a name="Installation1/2"></a>
+# <a name="Installation1/2"></a>Installation 1/2 (as root) :
 ```
 su
 ```
@@ -57,7 +57,7 @@ echo "quake3:yourquake3password" | chpasswd
 
 (If you plan on logging as quake3 in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file).
 
-# Installation 2/2 (as quake3) : <a name="Installation2/2"></a>
+# <a name="Installation2/2"></a>Installation 2/2 (as quake3) :
 ## File installation
 ### Download and extract latest quake3e client
 "Quake3e is an improved client for playing Quake 3 Arena mods" [Official site](http://edawn-mod.org/forum/viewtopic.php?f=6&t=7)
