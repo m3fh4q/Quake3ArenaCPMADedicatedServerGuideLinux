@@ -31,6 +31,10 @@ This tutorial will guide you on how to host a/multiple Quake 3 Arena CPMA dedica
 * 1 CPU and 1GB of RAM available on your server.
 * I recommend using the $2.50 or $5 offer from [Vultr](https://www.vultr.com/pricing/) (not affiliated with them, it's just what I currently use)
 
+<br />
+<br />
+<br />
+
 # <a name="Installation1/2"></a>Installation 1/2 (as root) :
 ```
 su
