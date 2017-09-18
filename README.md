@@ -27,9 +27,10 @@ This tutorial will guide you on how to host a/multiple Quake 3 Arena CPMA dedica
 <br />
 
 ## <a name="Requirements"></a>Requirements
-* Debian 9
+* Debian 9 x64 (What's used in this guide, instructions will probably work on other distributions with slight modifications).
 * 1 CPU and 1GB of RAM available on your server.
 * I recommend using the $2.50 or $5 offer from [Vultr](https://www.vultr.com/pricing/) (not affiliated with them, it's just what I currently use)
+* Reading carefully and understanding what you're doing.
 
 <br />
 <br />
@@ -274,4 +275,10 @@ Using the example in this guide, ```crontab -l``` will return this :
 
 <br />
 
-__In this example, the Quake 3 Arena CPMA dedicated server instance running in the screen session called cpma_server1 will be shutdown at 06:00 and restarted at 06:01 system time (generally UTC)__
+__In this example, the Quake 3 Arena CPMA dedicated server instance running in the screen session called cpma_server1 will be shutdown at 06:00 and restarted at 06:01 system time (generally UTC).__
+
+<br />
+<br />
+<br />
+
+[A similar guide for Reflex Arena](https://github.com/m3fh4q/ReflexArenaDedicatedServerGuideLinux)
