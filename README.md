@@ -27,7 +27,7 @@ This tutorial will guide you on how to host a/multiple Quake 3 Arena CPMA dedica
 <br />
 
 ## <a name="Requirements"></a>Requirements
-* Debian 9 x64 (What's used in this guide, instructions will probably work on other distributions with slight modifications).
+* Debian 9 x64 (what's used in this guide, instructions will probably work on other linux distributions with some slight modifications).
 * 1 CPU and 1GB of RAM available on your server.
 * I recommend using the $2.50 or $5 offer from [Vultr](https://www.vultr.com/pricing/) (not affiliated with them, it's just what I currently use)
 * Reading carefully and understanding what you're doing.
@@ -88,7 +88,7 @@ __Or__ from another machine :
 cd ~ && mkdir quake3_arena/ && wget -O q3cpma.zip "https://www.dropbox.com/s/x5kmywtwq8nqmoe/CPMA_full_rc4.zip" && unzip -d quake3_arena q3cpma.zip  && cd quake3_arena && rm *.txt && rm h4* && rm -r superhudeditor-0.3.0 udt_gui_0.7.2_dll_1.3.0 docs
 ```
 
-The dropbox link used is a mirror link to [DEZ's Q3CPMA archive](https://drive.google.com/open?id=0B0wfFzzjvCheTVVzSmdnQ1BLUms)
+The [dropbox link](https://www.dropbox.com/s/x5kmywtwq8nqmoe/CPMA_full_rc4.zip) used is a mirror link to [DEZ's Q3CPMA archive](https://drive.google.com/open?id=0B0wfFzzjvCheTVVzSmdnQ1BLUms)
 
 ### Download and extract Quake3e
 ```
